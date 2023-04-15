@@ -12,7 +12,8 @@ public class Helper {
 	public static String captureScreen(WebDriver driver)
 	{
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		String screenPath = "C:\\Users\\User\\git\\com.automation.actitime\\reports\\screens\\image.png";
+		String screenPath = "C:\\Users\\User\\git\\com.automation.actitime"
+				+ "\\reports\\screens\\image_"+System.currentTimeMillis()+".png";
 		try {
 			FileHandler.copy(src, new File(screenPath));
 		} catch (IOException e) {

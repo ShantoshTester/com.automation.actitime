@@ -11,6 +11,7 @@ public class EnterPage extends DriverManager {
 	
 	@FindBy(id = "logoutLink") WebElement logoutLink;
 	@FindBy(xpath = "//a[@class='userProfileLink username ']") WebElement userprofileText;
+	@FindBy(xpath = "//a[@class='content tasks']") WebElement menuTask;
 	
 // ****************************************** Page Initialization ******************************************//
 	
@@ -19,6 +20,11 @@ public class EnterPage extends DriverManager {
 	}
 	
 // ****************************************** Page Actions/Functions ***************************************//
+	
+	public void clickTaskMenu() {
+		menuTask.click();
+	}
+	
 	
 	public String getUserLoggedIn() {
 		return userprofileText.getText();

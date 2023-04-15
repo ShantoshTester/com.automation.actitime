@@ -5,6 +5,7 @@
     <classes>
       <class name="com.acti.testcase.BaseTest"/>
       <class name="com.acti.testcase.LoginPageTest"/>
+      <class name="com.acti.testcase.TaskPageTests"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

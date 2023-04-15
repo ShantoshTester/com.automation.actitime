@@ -8,7 +8,7 @@ import com.acti.driver.DriverManager;
 public class LoginPage extends DriverManager {
 
 // ****************************************** Page Elements ***********************************************//
-
+	
 	@FindBy(id = "username") WebElement usernameField;
 	@FindBy(name = "pwd") WebElement passwordField;
 	@FindBy(xpath = "//div[text()='Login ']") WebElement loginButton;

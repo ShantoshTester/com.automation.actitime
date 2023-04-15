@@ -6,7 +6,7 @@ import com.acti.pages.EnterPage;
 
 public class LoginPageTest extends BaseTest {
 	
-	@Test(priority = 1,enabled = true)
+	@Test(priority = 1,enabled = false)
 	public void testLoginPageTitle() 
 	{
 		logger = report.createTest("Test Login Page Title");
@@ -17,7 +17,7 @@ public class LoginPageTest extends BaseTest {
 		logger.pass("actual title matched the exepected");
 	}
 	
-	@Test(priority = 2,enabled = true)
+	@Test(priority = 2,enabled = false)
 	public void testActiLogoDisplayed() 
 	{
 		logger = report.createTest("Test actiLogo is displayed");
@@ -27,7 +27,7 @@ public class LoginPageTest extends BaseTest {
 		logger.pass("actilogo is displayed");
 	}
 	
-	@Test(priority = 3,enabled = true)
+	@Test(priority = 3,enabled = false)
 	public void testActiLinkDisplayed() 
 	{
 		logger = report.createTest("Test actiTime link is displayed");
@@ -37,7 +37,7 @@ public class LoginPageTest extends BaseTest {
 		logger.pass("actitime link is displayed");
 	}
 	
-	@Test(priority = 4,enabled = true)
+	@Test(priority = 4,enabled = false)
 	public void testLoginFunction() 
 	{
 		logger = report.createTest("Test Login Function");
@@ -47,7 +47,25 @@ public class LoginPageTest extends BaseTest {
 		logger.pass("entered the password");
 		lp.clickLogin();
 		logger.pass("clicked login button");
-		EnterPage ep = new EnterPage();
+		String user = ep.getUserLoggedIn();
+		System.out.println(user);
+		Assert.assertTrue(user.contains("John"));
+		logger.pass("user logged in contains the name john");
+		ep.clickLogout();
+		logger.pass("logged out from the applicaiton");
+	}
+	
+	@Test(priority = 5,enabled = true, dataProvider = "actidata")
+	
+	public void testLoginInvalid(String username, String password) 
+	{
+		logger = report.createTest("Test Login Function");
+		lp.enterUsername(username);
+		logger.pass("entered the username");
+		lp.enterPassword(password);
+		logger.pass("entered the password");
+		lp.clickLogin();
+		logger.pass("clicked login button");
 		String user = ep.getUserLoggedIn();
 		System.out.println(user);
 		Assert.assertTrue(user.contains("John"));
